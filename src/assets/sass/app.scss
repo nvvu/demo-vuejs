@@ -1,0 +1,89 @@
+body {
+    background-image: url(../bg.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+#app {
+    background-color: #fff;
+    text-align: left;
+}
+header {
+    min-height: 130px;
+    padding: 20px 20px;
+    .logo {
+        text-align: left;
+        display: block;
+        img {
+            display: inline-block;
+            vertical-align: top;
+        }
+        h1 {
+            margin: 12px 0 0 0;
+            display: inline-block;
+            color: #000;
+            text-transform: uppercase;
+        }
+    }
+}
+.navbar {
+    border-radius: 0;
+    margin-bottom: 0;
+    .navbar-collapse {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    li a {
+        font-weight: bold;
+        text-transform: uppercase;
+        padding: 15px 20px;
+    }
+}
+.sub-header {
+    height: 35px;
+    background-color: #f5f5f5;
+    overflow: hidden;
+    .ticker-title {
+        padding: 0px 20px;
+        float: left;
+        font-weight: 700;
+        color: #fff;
+        line-height: 35px;
+        background: #e64946;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    .ticker-content {
+        float: left;
+        ul {
+            margin: 0;
+            list-style: none;
+            padding: 0px 0 0 20px;
+            li a {
+                color: #2a2a2a;
+                padding: 8px 0px;
+                display: block;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+#main {
+    min-height: 500px;
+}
+.VueCarousel-slide {
+    height: 100px;
+    height: 380px;
+    position: relative;
+    .text {
+        position: absolute;
+        padding: 30px 50px;
+        background-color: rgba(0,0,0,0.7);
+        color: #fff;
+        text-align: left;
+        border-bottom: 3px solid #e64946;
+    }
+}

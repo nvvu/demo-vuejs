@@ -1,31 +1,37 @@
 <template>
   <div class="page-index">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-      <br>
-      <li><a href="http://vuejs-templates.github.io/webpack/" target="_blank">Docs for This Template</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <div class="row">
+      <div class="col-md-8">
+        <carousel :perPage="1" :paginationSize="20">
+          <slide v-for="item in slides" :key="item.id">
+            <div class="text">{{ item.text }}</div>
+            <img :src="item.image" alt="">
+          </slide>
+        </carousel>
+      </div>
+      <div class="col-md-4">
+
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { Carousel, Slide } from 'vue-carousel'
 export default {
   name: 'page-index',
+  components: {
+    Carousel,
+    Slide
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      slides: [
+        {id: 1, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 1', image: require('../assets/slider/slide-1.jpg')},
+        {id: 2, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 2', image: require('../assets/slider/slide-2.jpg')},
+        {id: 3, text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 3', image: require('../assets/slider/slide-3.jpg')}
+      ]
     }
   }
 }
@@ -37,17 +43,4 @@ h1, h2 {
   font-weight: normal;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
-}
 </style>
