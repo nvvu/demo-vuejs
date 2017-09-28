@@ -36,11 +36,8 @@
     <div class="sub-header">
       <div class="ticker-title">news ticker</div>
       <div class="ticker-content">
-        <ul>
-          <li v-for="item in tickers" :key="item">
-            <a href="#">{{ item }}</a>
-          </li>
-        </ul>
+        <a href="#" class="current-ticker"></a>
+        <a href="#" class="next-ticker"></a>
       </div>
     </div>
     <div id="main">
@@ -54,31 +51,39 @@ require('../node_modules/jquery/dist/jquery.min.js')
 require('../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js')
 require('../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss')
 require('./assets/sass/app.scss')
+import $ from 'jquery'
 export default {
   name: 'app',
   data () {
     return {
       tickers: [
-        'ticker 1',
-        'ticker 2',
-        'ticker 3',
-        'ticker 4'
-      ]
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+        'Nisi ut aliquip ex ea commodo consequat.',
+        'Duis aute irure dolor in reprehenderit in voluptate velit esse.'
+      ],
+      currentTickerIndex: 0
     }
   },
   mounted () {
-    console.log('abc')
+    $('.current-ticker').text(this.tickers[this.currentTickerIndex])
+    setInterval(() => {
+      const current = $('.current-ticker').first()
+      const next = $('.next-ticker').first()
+      this.currentTickerIndex++
+      if (this.currentTickerIndex >= this.tickers.length) {
+        this.currentTickerIndex = 0
+      }
+      next.text(this.tickers[this.currentTickerIndex])
+      next.css({top: 0, 'z-index': 200})
+      current.css({top: 36, 'z-index': 100})
+
+      setTimeout(() => {
+        next.removeClass('next-ticker').addClass('current-ticker')
+        current.removeClass('current-ticker').addClass('next-ticker')
+      }, 500)
+    }, 2000)
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>

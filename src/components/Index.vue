@@ -2,7 +2,7 @@
   <div class="page-index">
     <div class="row">
       <div class="col-md-8">
-        <carousel :perPage="1" :paginationSize="20">
+        <carousel :perPage="1" :paginationSize="20"">
           <slide v-for="item in slides" :key="item.id">
             <div class="text">{{ item.text }}</div>
             <img :src="item.image" alt="">

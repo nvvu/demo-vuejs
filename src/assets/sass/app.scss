@@ -56,27 +56,36 @@ header {
     }
     .ticker-content {
         float: left;
-        ul {
-            margin: 0;
-            list-style: none;
-            padding: 0px 0 0 20px;
-            li a {
-                color: #2a2a2a;
-                padding: 8px 0px;
-                display: block;
-                &:hover {
-                    text-decoration: none;
-                }
-            }
+        padding-left: 10px;
+        position: relative;
+        & > a {
+            height: 35px;
+            width: 100%;
+            background-color: #f5f5f5;
+            position: absolute;
+            display: block;
+            color: #222;
+            text-align: left;
+            padding: 8px 0;
+            width: 500px;
+        }
+        .current-ticker {
+            top: 0px;
+            transition: top .2s linear;
+        }
+        .next-ticker {
+            top: 36px;
+            transition: top .2s linear;
         }
     }
 }
 #main {
-    min-height: 500px;
+    min-height: 700px;
+    padding: 20px;
 }
 .VueCarousel-slide {
     height: 100px;
-    height: 380px;
+    height: 404px;
     position: relative;
     .text {
         position: absolute;
@@ -85,5 +94,8 @@ header {
         color: #fff;
         text-align: left;
         border-bottom: 3px solid #e64946;
+    },
+    img {
+        width: 100%;
     }
 }
